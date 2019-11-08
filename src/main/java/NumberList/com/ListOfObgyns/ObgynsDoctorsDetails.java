@@ -114,12 +114,15 @@ public class ObgynsDoctorsDetails {
 
 		List<WebElement> doctorNamesList = driver.findElements(DoctorsName);
 
-		int i=1;
+		int i = 1;
 		for (WebElement doctorName_ele : doctorNamesList) {
+
 			scrollelement.scrollByXYAxis(doctorName_ele);
-			data(counter,i);
+
+			data(counter, i);
 			i++;
 			counter++;
+
 		}
 
 		while (true) {
@@ -175,15 +178,15 @@ public class ObgynsDoctorsDetails {
 		return driver;
 	}
 
-	public void data(int excelRow,int pageRow) throws Exception {
+	public void data(int excelRow, int pageRow) throws Exception {
 		HighlightElement highlight = new HighlightElement(driver);
 		ScrollElement scrollelement = new ScrollElement(driver);
 		ExcelUtility excel = new ExcelUtility("src\\test\\resources\\ExcelFile\\ObgynsData.xlsx");
 
-		scrollelement.scrollByXYAxis(driver.findElement(
-				By.xpath("(//a[@queryparamshandling=\"preserve\" and @class=\"search-result-link\"])[" + pageRow + "]")));
-		highlight.highlighElement(driver.findElement(
-				By.xpath("(//a[@queryparamshandling=\"preserve\" and @class=\"search-result-link\"])[" + pageRow + "]")));
+		scrollelement.scrollByXYAxis(driver.findElement(By
+				.xpath("(//a[@queryparamshandling=\"preserve\" and @class=\"search-result-link\"])[" + pageRow + "]")));
+		highlight.highlighElement(driver.findElement(By
+				.xpath("(//a[@queryparamshandling=\"preserve\" and @class=\"search-result-link\"])[" + pageRow + "]")));
 		System.out.println(driver
 				.findElement(By.xpath(
 						"(//a[@queryparamshandling=\"preserve\" and @class=\"search-result-link\"])[" + pageRow + "]"))
